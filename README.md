@@ -18,7 +18,7 @@
 | experience_id        | integer    | null: false                    |
 | career               | text       |                                |
 | public_commitment    | text       |                                |
-| candidate_id         | references | null: false, foreign_key: true |
+| electorate_id         | references | null: false, foreign_key: true |
 
 
 ### Association
