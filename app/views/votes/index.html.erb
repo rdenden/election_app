@@ -1,0 +1,24 @@
+<p class= 'vote-title' ><%=@candidate.last_name%><%=@candidate.first_name%>候補が当選</p>
+  
+
+
+
+<div class='wrapper'>
+  
+  <div class= 'candidate'>
+    <% @candidates.each do |candidate|%>
+      <li class= list>
+      <%= candidate.last_name %><%= candidate.first_name%>候補
+      </li>
+    <% end %>
+</div>
+
+<div class= 'vote'>
+  <% @values.each do |value|%>
+   <li class= result_list>
+   <%= value %>票を獲得
+   </li>
+  <% end %>
+</div>
+</div>
+<%= link_to'トップページへ戻る',root_path %>

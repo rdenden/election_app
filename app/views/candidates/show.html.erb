@@ -1,0 +1,77 @@
+<div class='edit-box'>
+     <% if @candidate.electorate_id == current_electorate.id %>
+     <%= link_to 'プロフィールを編集する', edit_candidate_path(@candidate.id), class: "logout" %>
+     <%= link_to '立候補を取りやめる', candidate_path(@candidate.id),method: :delete, class: "candidate-up", id:"destroy_candidate" %>
+     <% end %>
+</div>
+
+
+<%= link_to "#{@candidate.last_name}#{@candidate.first_name}候補に聞いてみよう", candidate_room_path(@candidate,@candidate.room), class:"room" %>
+<div class= "candidate-show" >
+  <div class="candidate-box">
+   <div class= 'first-box'>
+     <div class= 'left-box'>
+     <%= image_tag @candidate.image, class: 'candidate-img' if @candidate.image.attached? %>
+     </div>
+     <div class='right-box'>
+       <div class= name-box>
+         <div class='candidate-name'>
+          <%= @candidate.last_name %>
+          <%= @candidate.first_name %>
+         </div>
+         <div class='candidate-name-kana'>
+          <%= @candidate.last_name_kana %>
+          <%= @candidate.first_name_kana %>
+         </div>
+       </div>
+       <div class='candidate-age'>
+         <%= @candidate.birth_date %> 生まれ   
+         <%= @candidate.age %>歳
+         <%= @candidate.Gender.name %>
+       </div>
+       <div class= "party">
+         <%= @candidate.political_party %>
+         <%= @candidate.Experience.name %>
+       </div>
+       <div class= 'birth_place'>
+         <%= @candidate.birth_place %>
+       </div>
+       <div class= 'occupation'>
+         <%= @candidate.occupation %>
+       </div>
+       <div class= 'education'>
+         <%= @candidate.education %>
+       </div>
+     </div>
+   </div>
+   <div class= 'second-box'>
+     <div class= 'career'>
+       <div class= 'career-title'>
+         経歴
+       </div>
+     <div class='career-content'>
+         <%= @candidate.career %>
+     </div>
+     </div>
+   </div>
+   <div class= 'third-box'>
+     <div class= 'public_commitment'>
+       <div class= 'public_commitment-title'>
+         公約
+       </div>
+       <div class= 'public_commitment-content'>
+        <%= @candidate.public_commitment %>
+       </div>
+     </div>
+   </div>
+     
+     
+    
+      
+    <div class= room-link>
+      <%= link_to "#{@candidate.last_name}#{@candidate.first_name}候補への質問はこちらへ", candidate_room_path(@candidate,@candidate.room), class:"room" %>
+   </div>
+
+  </div>
+</div>
+<%= link_to'トップページへ戻る',root_path %>

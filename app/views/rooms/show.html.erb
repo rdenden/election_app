@@ -1,0 +1,37 @@
+ 
+  <div class= "chat-header">
+    <div class= "chat-leftheader">
+      <%= current_electorate.nickname %>さん
+      <%= link_to'トップページへ戻る',root_path %>
+    </div>
+    <div class= "chat-rightheader">
+      <%= @candidate.last_name %><%= @candidate.first_name %>候補の部屋
+    </div>
+  </div>
+  <div class="chat">
+    <div class="electorate-chat">
+    　<div class= 'message-header'>有権者の声</div>
+      <li class= 'message-list'>
+      <% @electorate_messages.each do |electorate_message| %>
+      <%= electorate_message.content%>
+      </li>
+    <% end %>
+    </div>
+    <div class="candidate-chat">
+    　<div class= 'message-header'>候補者の声</div>
+      <li class= 'message-list'>
+      <% @candidate_messages.each do |candidate_message| %>
+      <%= candidate_message.content%>
+      </li>
+    <% end %>
+    </div>
+  </div>
+
+
+<%# <%= form_with model: [@candidate, @room, @message], class: 'form', local: true do |f| %> 
+<%= form_with url: "/candidates/#{@candidate.id}/rooms/#{@room.id}/messages", method: :post, local: true do |f| %>
+  <%= f.text_field :content %>
+  
+  
+  <%= f.submit '送信', class: 'form-submit' %>
+<% end %>

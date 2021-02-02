@@ -1,0 +1,76 @@
+<div class= back>
+  <div class= head>
+    <h1 class='title'> 投票期限 ２月５日(20:00まで) </h1>
+    <div class= 'count' id='count'></div>
+  </div>
+
+<div class='user_content'>
+  <div class='user_name'>こんにちは
+    <% if electorate_signed_in?%>
+    <%= current_electorate.nickname %>
+    <% else %>
+    ゲスト
+    <% end %>
+     さん
+  </div>
+  <div class='user_serect'>
+    <% if electorate_signed_in? %>
+     <button>
+     <%= link_to 'ログアウト', destroy_electorate_session_path, method: :delete, class: "logout" %>
+     </button> 
+     <%if current_electorate.candidate%>
+       [立候補済]
+       <% else %>
+       <button>
+       <%= link_to '立候補する',new_candidate_path, class: "candidate-up" %>
+       </button> 
+     <% end %>
+     <% if current_electorate.vote %>
+       [投票済]
+     <% else%>
+       <button>
+       <%= link_to '投票する', new_vote_path ,class: "send" %>
+       </button> 
+     <% end %>
+     <%vote_time = Time.local 2021, 1, 5, 20, 0, 0%>
+     <%now = Time.now%>
+     <%if vote_time < now %>
+     <button>
+     <%= link_to '選挙結果を見る', votes_path ,class: "result" %>
+     </button> 
+     <% end %>
+
+    <% else %>
+    <%= link_to 'ログイン', new_electorate_session_path, class: "login" %>
+    <%= link_to '新規登録',new_electorate_registration_path, class: "sign-up" %>
+  
+   <% end %>
+  </div>
+
+</div>
+<div class= 'index' >候補者一覧(届出順)</div>
+<div class= 'candidate_content'>
+  
+  <div class='candidate-img-content'>
+     <% @candidates.each do |candidate| %> 
+     <li class='top-list'>
+        <%= link_to candidate_path(candidate.id) do %>
+        <div class= 'list-image'>
+        <%= image_tag candidate.image.variant(resize: '300x300'), class: "candidate-img" if candidate.image.attached?%>
+        </div>
+        <div class= 'list-name'>
+        <%= candidate.last_name %>
+        <%= candidate.first_name %>
+        </div>
+        <% end %>
+      </li>
+  <% end %>
+  </div>
+  
+
+</div>
+  
+
+
+
+

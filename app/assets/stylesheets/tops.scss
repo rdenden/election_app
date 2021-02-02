@@ -1,0 +1,114 @@
+// Place all the styles related to the tops controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.back{
+  background-color: rgba(103, 137, 189, 0.603);
+}
+
+
+
+
+.title {
+  font-size: 60px;
+  text-align: center;
+}
+
+.user_content {
+  display: flex;
+  font-size: 20px;
+  background-color: rgb(154, 138, 199);
+  margin: 30px;
+}
+
+.user_serect{
+  margin: 0 0 0 20px;
+  
+}
+
+
+.candidate_content {
+  display: flex;
+  
+  justify-content: space-around;
+  font-size: 25px;
+}
+
+.top-list { 
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 10px;
+  
+
+}
+
+.send {
+  width: 200px;
+  padding: 15px;
+  border: 1px solid white;
+  color: white;
+  background-color: orange;
+  
+  text-decoration: none;
+  
+}
+
+.logout {
+  width: 200px;
+  padding: 15px;
+  border: 1px solid white;
+  color: white;
+  background-color: rgb(17, 0, 255);
+  
+  text-decoration: none;
+  
+}
+
+.candidate-up {
+  width: 200px;
+  padding: 15px;
+  border: 1px solid white;
+  color: white;
+  background-color: rgb(19, 124, 66);
+  
+  text-decoration: none;
+  
+}
+
+.result {
+  width: 200px;
+  padding: 15px;
+  border: 1px solid white;
+  color: white;
+  background-color: rgb(160, 4, 147);
+  
+  text-decoration: none;
+  
+}
+
+.candidate-img-content{
+  display: flex;
+
+}
+
+.list-image{
+  display: block;
+}
+.list-name{
+  text-align: center;
+  list-style: none;
+}
+
+.index{
+  font-size: 30px;
+  text-align: center;
+  margin: 40px 0 30px 0;
+}
+
+.count{
+  font-size: 40px;
+  color: rgb(197, 24, 125);
+  text-align: center;
+  background-color: beige;
+}

@@ -1,0 +1,57 @@
+// Place all the styles related to the rooms controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.chat-header{
+  
+  
+  display: flex;
+}
+
+.chat-rightheader{
+  height: 100px;
+  width: 70vw;
+  font-size: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(185, 241, 190);
+}
+
+.chat-leftheader{
+  height: 100px;
+  width: 30vw;
+  font-size: 35px;
+  background-color: rgb(235, 209, 209);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.chat{
+  background-color: rgb(241, 247, 247);
+  height: 500px;
+  display: flex;
+
+}
+
+
+.electorate-chat{
+  background-color: rgb(250, 218, 242);
+  width: 50vw;
+  height: 100vh;
+  
+}
+.candidate-chat{
+  background-color: rgb(207, 250, 250);
+  height: 100vh;
+  width: 50vw;
+  
+}
+
+.message-list{
+  list-style: none;
+}
+
+.message-header{
+  font-size: 30px;
+}
