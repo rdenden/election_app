@@ -2,24 +2,30 @@
 
 ## candidatesテーブル
 
-| Colum                | Type    | Options     |
-|----------------------|---------|-------------|
-| last_name            | string  | null: false |
-| first_name           | string  | null: false |
-| last_name_kana       | string  | null: false |
-| first_name_kana      | string  | null: false |
-| birth_date           | date    | null: false |
-| gender_id            | integer | null: false |
-| occupation           | string  | null: false |
-| education            | string  | null: false |
-| career               | text    |             |
-| public_commitment    | text    |             |
+| Colum                | Type       | Options                        |
+|----------------------|------------|--------------------------------|
+| last_name            | string     | null: false                    |
+| first_name           | string     | null: false                    |
+| last_name_kana       | string     | null: false                    |
+| first_name_kana      | string     | null: false                    |
+| birth_date           | date       | null: false                    |
+| age                  | integer    | null: false                    |
+| gender_id            | integer    | null: false                    |
+| occupation           | string     | null: false                    |
+| birth_place          | string     | null: false                    |
+| education            | string     | null: false                    |
+| political_party      | string     | null: false                    |
+| experience_id        | integer    | null: false                    |
+| career               | text       |                                |
+| public_commitment    | text       |                                |
+| candidate_id         | references | null: false, foreign_key: true |
 
 
 ### Association
 
 - has_many :vote
 - belongs_to : electorate
+- has_one :room
 
 ## electoratesテーブル
 
@@ -31,14 +37,15 @@
 
 ### Association
 
-- has_many :electorate_messages
+- has_many :messages
 - has_one :vote
 - has_one :candidate
 
 ## roomsテーブル
 
-| Colum     | Type       | Options                        |
-|-----------|------------|--------------------------------|
+| Colum              | Type       | Options                        |
+|--------------------|------------|--------------------------------|
+| candidate_id       | references | null: false, foreign_key: true |
 
 ### Association
 
@@ -55,8 +62,8 @@
 
 ### Association
 
-- belongs_to :rooms
-- belongs-to :candidates
+- belongs_to :room
+- belongs-to :electorate
 
 
 
