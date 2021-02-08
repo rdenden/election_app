@@ -3,7 +3,9 @@ require 'rails_helper'
 RSpec.describe "Candidates", type: :system do
   before do
     @electorate = FactoryBot.create(:electorate)
+    @electorate1 = FactoryBot.create(:electorate)
     @candidate = FactoryBot.build(:candidate)
+    @candidate1 = FactoryBot.create(:candidate, electorate_id: @electorate1.id)
     @candidate.career = Faker::Lorem.sentence
     @candidate.public_commitment = Faker::Lorem.sentence
     
@@ -57,7 +59,17 @@ RSpec.describe "Candidates", type: :system do
     it 'ログインしていないと立候補ページに遷移できない' do
       # トップページに遷移する
       visit root_path
-      # 新規投稿ページへのリンクがない
+      # 立候補ボタンがない
+      expect(page).to have_no_content('立候補する')
+    end
+    it '立候補済みの有権者は重ねて立候補することはできない' do
+      # 立候補済みの有権者でログインしてトップページに遷移する
+      visit new_electorate_session_path
+      fill_in 'メールアドレス', with: @electorate1.email
+      fill_in 'パスワード（6文字以上）', with: @electorate1.password
+      find('input[name="commit"]').click
+      expect(current_path).to eq root_path
+      # 立候補ボタンがない
       expect(page).to have_no_content('立候補する')
     end
   end
