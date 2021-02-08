@@ -18,7 +18,7 @@
         <p>
           クリックしてファイルをアップロード
         </p>
-        <%= f.file_field :image, id:"item-image" %>
+        <%= f.file_field :image, id:"candidate-image" %>
       </div>
     </div>
     <%# /出品画像 %>
@@ -78,7 +78,7 @@
           出身地
           <span class="indispensable">必須</span>
         </div>
-        <%= f.text_area :birth_place, class:"input-birth_place", id:"birth_place", placeholder:"例) 東京都" %>
+        <%= f.text_area :birth_place, class:"input-birth_place", id:"birth-place", placeholder:"例) 東京都" %>
         
         <div class="weight-bold-text">
           職業
@@ -101,7 +101,7 @@
           政党名
           <span class="indispensable">必須</span>
         </div>
-        <%= f.text_area :political_party, class:"input-political_party", id:"political_party", placeholder:"例) 無所属" %>
+        <%= f.text_area :political_party, class:"input-political_party", id:"political-party", placeholder:"例) 無所属" %>
         
         
         
@@ -126,7 +126,7 @@
           政策その他
           
         </div>
-        <%= f.text_area :public_commitment, class:"input-public_commitment", id:"political_commitmant", placeholder:"" %>
+        <%= f.text_area :public_commitment, class:"input-public_commitment", id:"public-commitment", placeholder:"" %>
 
 
 

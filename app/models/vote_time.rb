@@ -1,2 +1,0 @@
-class VoteTime < ApplicationRecord
-end

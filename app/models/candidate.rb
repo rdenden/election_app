@@ -4,8 +4,8 @@ class Candidate < ApplicationRecord
   belongs_to_active_hash :Experience
 
   belongs_to :electorate
-  has_one :room
-  has_many :votes
+  has_one :room,dependent: :destroy
+  has_many :votes,dependent: :destroy
 
   has_one_attached :image
 

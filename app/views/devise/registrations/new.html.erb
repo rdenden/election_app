@@ -10,6 +10,11 @@
         <%= form_with model: @electorate, url: electorate_registration_path, local: true do |f| %>
 
         <div class="field">
+          <%= f.label :nickname, "ユーザー名" %><br />
+          <%= f.text_field :nickname %>
+        </div>
+        
+        <div class="field">
           <%= f.label :email, "メールアドレス" %><br />
           <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
         </div>
@@ -24,10 +29,7 @@
           <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
         </div>
 
-        <div class="field">
-          <%= f.label :nickname, "ユーザー名" %><br />
-          <%= f.text_field :nickname %>
-        </div>
+        
 
         
         <div class="actions">
