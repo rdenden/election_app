@@ -49,7 +49,7 @@ RSpec.describe "Candidates", type: :system do
       expect(page).to have_content('投票する')
       # 投票ページに移動する
       visit new_vote_path
-      # ラジオボタンから候補者2を選択    
+      # ラジオボタンから候補者2を選択
       choose "vote_candidate_id_#{@candidate2.id}"
       # 送信するとCandidateモデルのカウントが1上がることを確認する
       expect{

@@ -10,17 +10,22 @@
   </div>
   <div class="chat">
     <div class="electorate-chat">
-    　<div class= 'message-header'>有権者の声</div>
+      <div class= 'message-header'>有権者の声</div>
       <li class= 'message-list'>
       <% @electorate_messages.each do |electorate_message| %>
-      <%= electorate_message.content%>
+      <div class="message-box">
+        <%= electorate_message.content%>
+        <%= electorate_message.electorate.nickname%>
+      </div>      
       </li>
     <% end %>
     </div>
     <div class="candidate-chat">
-    　<div class= 'message-header'>候補者の声</div>
+      <div class= 'message-header'>候補者の声</div>
       <li class= 'message-list'>
       <% @candidate_messages.each do |candidate_message| %>
+        
+      
       <%= candidate_message.content%>
       </li>
     <% end %>
