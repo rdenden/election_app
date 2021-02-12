@@ -1,6 +1,6 @@
 <div class= back>
   <div class= head>
-    <h1 class='title'> 投票期限 ２月５日(20:00まで) </h1>
+    <h1 class='title'> 投票期限 12月31日(20:00まで) </h1>
     <div class= 'count' id='count'></div>
   </div>
 
@@ -32,14 +32,7 @@
        <%= link_to '投票する', new_vote_path ,class: "send" %>
        </button> 
      <% end %>
-     <%vote_time = Time.local 2021, 1, 5, 20, 0, 0%>
-     <%now = Time.now%>
-     <%if vote_time < now %>
-     <button>
-     <%= link_to '選挙結果を見る', votes_path ,class: "result" %>
-     </button> 
-     <% end %>
-
+     
     <% else %>
     <%= link_to 'ログイン', new_electorate_session_path, class: "login" %>
     <%= link_to '新規登録',new_electorate_registration_path, class: "sign-up" %>

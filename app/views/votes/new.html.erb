@@ -1,20 +1,24 @@
-<h1>投票所</h1>
+<h1 class="vote-title">投票所</h1>
 <div class="contact">
-      <%= form_with(model: @vote, local: true) do |f| %>
-      <%= render partial:'devise/shared/error_messages', locals: { model: f.object } %>
+   <%= form_with(model: @vote, local: true) do |f| %>
+     <%= render partial:'devise/shared/error_messages', locals: { model: f.object } %>
       
-         <li class='vote_list'>           
+         <li class='vote-list'>           
          
             <% @candidates.each do |candidate|%>
+             <div class= 'vote-candidate'>
              <label>
              <%= f.radio_button :candidate_id, candidate.id%>
              </label>
              <%= candidate.last_name%>
              <%= candidate.first_name%>
+             </div>
              
             <% end %>
           </li>
+          <div class= 'vote-button'>
           <%= f.submit "投票する" %>
-      <% end %>     
+          </div>
+  <% end %>     
 </div>
 <%= link_to'トップページへ戻る',root_path %>

@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe "Candidates", type: :system do
+RSpec.describe "投票機能", type: :system do
   before do
     @electorate1 = FactoryBot.create(:electorate)
     @electorate2 = FactoryBot.create(:electorate)

@@ -6,7 +6,7 @@
 </div>
 
 <% if electorate_signed_in? %>
-<%= link_to "#{@candidate.last_name}#{@candidate.first_name}候補に聞いてみよう", candidate_room_path(@candidate,@candidate.room), class:"room" %>
+<%= link_to "#{@candidate.last_name}#{@candidate.first_name}候補への質問はこちらへ", candidate_room_path(@candidate,@candidate.room), class:"room" %>
 <% end %>
 <div class= "candidate-show" >
   <div class="candidate-box">

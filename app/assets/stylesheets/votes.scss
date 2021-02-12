@@ -8,22 +8,42 @@
   background-color: rgb(204, 131, 155);
 }
 
+.vote-title{
+  background-color: bisque;
+}
+.contact{
+  background-color: rgb(34, 145, 108);
+  font-size: 50px;
+  display: flex;
+  justify-content: center;
+  
 
+}
+
+.vote-button{
+  width: 50px;
+}
 
 
 
 .h1{
   width: 100vw;
-  height: 30px;
+  height: 20px;
   align-items: center;
   display: flex;
-  justify-content: end;
+ 
 }
 
-.vote_list{
+.vote-list{
   list-style: none;
+  
+
+  
 }
 
+.vote-button{
+
+}
 .wrapper{
   display: flex;
   width: 100vw;
