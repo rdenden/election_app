@@ -10,100 +10,100 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_01_100425) do
-
-  create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "name", null: false
-    t.string "record_type", null: false
-    t.bigint "record_id", null: false
-    t.bigint "blob_id", null: false
-    t.datetime "created_at", null: false
-    t.index ["blob_id"], name: "index_active_storage_attachments_on_blob_id"
-    t.index ["record_type", "record_id", "name", "blob_id"], name: "index_active_storage_attachments_uniqueness", unique: true
+ActiveRecord::Schema.define(version: 20_210_201_100_425) do
+  create_table 'active_storage_attachments', options: 'ENGINE=InnoDB DEFAULT CHARSET=utf8', force: :cascade do |t|
+    t.string 'name', null: false
+    t.string 'record_type', null: false
+    t.bigint 'record_id', null: false
+    t.bigint 'blob_id', null: false
+    t.datetime 'created_at', null: false
+    t.index ['blob_id'], name: 'index_active_storage_attachments_on_blob_id'
+    t.index %w[record_type record_id name blob_id], name: 'index_active_storage_attachments_uniqueness',
+                                                    unique: true
   end
 
-  create_table "active_storage_blobs", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "key", null: false
-    t.string "filename", null: false
-    t.string "content_type"
-    t.text "metadata"
-    t.bigint "byte_size", null: false
-    t.string "checksum", null: false
-    t.datetime "created_at", null: false
-    t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
+  create_table 'active_storage_blobs', options: 'ENGINE=InnoDB DEFAULT CHARSET=utf8', force: :cascade do |t|
+    t.string 'key', null: false
+    t.string 'filename', null: false
+    t.string 'content_type'
+    t.text 'metadata'
+    t.bigint 'byte_size', null: false
+    t.string 'checksum', null: false
+    t.datetime 'created_at', null: false
+    t.index ['key'], name: 'index_active_storage_blobs_on_key', unique: true
   end
 
-  create_table "candidates", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "last_name", null: false
-    t.string "first_name", null: false
-    t.string "last_name_kana", null: false
-    t.string "first_name_kana", null: false
-    t.date "birth_date", null: false
-    t.integer "age", null: false
-    t.string "birth_place", null: false
-    t.integer "gender_id", null: false
-    t.string "political_party", null: false
-    t.integer "experience_id", null: false
-    t.string "occupation", null: false
-    t.string "education", null: false
-    t.text "career"
-    t.text "public_commitment"
-    t.bigint "electorate_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["electorate_id"], name: "index_candidates_on_electorate_id"
+  create_table 'candidates', options: 'ENGINE=InnoDB DEFAULT CHARSET=utf8', force: :cascade do |t|
+    t.string 'last_name', null: false
+    t.string 'first_name', null: false
+    t.string 'last_name_kana', null: false
+    t.string 'first_name_kana', null: false
+    t.date 'birth_date', null: false
+    t.integer 'age', null: false
+    t.string 'birth_place', null: false
+    t.integer 'gender_id', null: false
+    t.string 'political_party', null: false
+    t.integer 'experience_id', null: false
+    t.string 'occupation', null: false
+    t.string 'education', null: false
+    t.text 'career'
+    t.text 'public_commitment'
+    t.bigint 'electorate_id'
+    t.datetime 'created_at', precision: 6, null: false
+    t.datetime 'updated_at', precision: 6, null: false
+    t.index ['electorate_id'], name: 'index_candidates_on_electorate_id'
   end
 
-  create_table "electorates", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "email", default: "", null: false
-    t.string "encrypted_password", default: "", null: false
-    t.string "nickname", null: false
-    t.string "reset_password_token"
-    t.datetime "reset_password_sent_at"
-    t.datetime "remember_created_at"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["email"], name: "index_electorates_on_email", unique: true
-    t.index ["reset_password_token"], name: "index_electorates_on_reset_password_token", unique: true
+  create_table 'electorates', options: 'ENGINE=InnoDB DEFAULT CHARSET=utf8', force: :cascade do |t|
+    t.string 'email', default: '', null: false
+    t.string 'encrypted_password', default: '', null: false
+    t.string 'nickname', null: false
+    t.string 'reset_password_token'
+    t.datetime 'reset_password_sent_at'
+    t.datetime 'remember_created_at'
+    t.datetime 'created_at', precision: 6, null: false
+    t.datetime 'updated_at', precision: 6, null: false
+    t.index ['email'], name: 'index_electorates_on_email', unique: true
+    t.index ['reset_password_token'], name: 'index_electorates_on_reset_password_token', unique: true
   end
 
-  create_table "messages", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.text "content", null: false
-    t.bigint "room_id"
-    t.bigint "electorate_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["electorate_id"], name: "index_messages_on_electorate_id"
-    t.index ["room_id"], name: "index_messages_on_room_id"
+  create_table 'messages', options: 'ENGINE=InnoDB DEFAULT CHARSET=utf8', force: :cascade do |t|
+    t.text 'content', null: false
+    t.bigint 'room_id'
+    t.bigint 'electorate_id'
+    t.datetime 'created_at', precision: 6, null: false
+    t.datetime 'updated_at', precision: 6, null: false
+    t.index ['electorate_id'], name: 'index_messages_on_electorate_id'
+    t.index ['room_id'], name: 'index_messages_on_room_id'
   end
 
-  create_table "rooms", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.bigint "candidate_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["candidate_id"], name: "index_rooms_on_candidate_id"
+  create_table 'rooms', options: 'ENGINE=InnoDB DEFAULT CHARSET=utf8', force: :cascade do |t|
+    t.bigint 'candidate_id'
+    t.datetime 'created_at', precision: 6, null: false
+    t.datetime 'updated_at', precision: 6, null: false
+    t.index ['candidate_id'], name: 'index_rooms_on_candidate_id'
   end
 
-  create_table "vote_times", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.datetime "vote_date_time", default: "2000-01-01 00:00:00", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+  create_table 'vote_times', options: 'ENGINE=InnoDB DEFAULT CHARSET=utf8', force: :cascade do |t|
+    t.datetime 'vote_date_time', default: '2000-01-01 00:00:00', null: false
+    t.datetime 'created_at', precision: 6, null: false
+    t.datetime 'updated_at', precision: 6, null: false
   end
 
-  create_table "votes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.bigint "electorate_id"
-    t.bigint "candidate_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["candidate_id"], name: "index_votes_on_candidate_id"
-    t.index ["electorate_id"], name: "index_votes_on_electorate_id"
+  create_table 'votes', options: 'ENGINE=InnoDB DEFAULT CHARSET=utf8', force: :cascade do |t|
+    t.bigint 'electorate_id'
+    t.bigint 'candidate_id'
+    t.datetime 'created_at', precision: 6, null: false
+    t.datetime 'updated_at', precision: 6, null: false
+    t.index ['candidate_id'], name: 'index_votes_on_candidate_id'
+    t.index ['electorate_id'], name: 'index_votes_on_electorate_id'
   end
 
-  add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
-  add_foreign_key "candidates", "electorates"
-  add_foreign_key "messages", "electorates"
-  add_foreign_key "messages", "rooms"
-  add_foreign_key "rooms", "candidates"
-  add_foreign_key "votes", "candidates"
-  add_foreign_key "votes", "electorates"
+  add_foreign_key 'active_storage_attachments', 'active_storage_blobs', column: 'blob_id'
+  add_foreign_key 'candidates', 'electorates'
+  add_foreign_key 'messages', 'electorates'
+  add_foreign_key 'messages', 'rooms'
+  add_foreign_key 'rooms', 'candidates'
+  add_foreign_key 'votes', 'candidates'
+  add_foreign_key 'votes', 'electorates'
 end

@@ -4,8 +4,8 @@ class Candidate < ApplicationRecord
   belongs_to_active_hash :Experience
 
   belongs_to :electorate
-  has_one :room,dependent: :destroy
-  has_many :votes,dependent: :destroy
+  has_one :room, dependent: :destroy
+  has_many :votes, dependent: :destroy
 
   has_one_attached :image
 
@@ -24,12 +24,12 @@ class Candidate < ApplicationRecord
     end
 
     validates :birth_date
-    validates :age, numericality:{ greater_than_or_equal_to: 25 } ,format: { with: /\A[0-9]+\z/ , message: "is invalid. Input half-width characters"}
+    validates :age, numericality: { greater_than_or_equal_to: 25 },
+                    format: { with: /\A[0-9]+\z/, message: 'is invalid. Input half-width characters' }
     validates :birth_place
     validates :political_party
     validates :occupation
     validates :education
     validates :electorate_id, uniqueness: true
-
   end
 end

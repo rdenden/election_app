@@ -4,7 +4,6 @@ RSpec.describe Room, type: :model do
   describe '#create' do
     before do
       @room = FactoryBot.build(:room)
-      
     end
 
     it 'candidateが存在していれば保存できること' do
@@ -18,4 +17,3 @@ RSpec.describe Room, type: :model do
     end
   end
 end
-

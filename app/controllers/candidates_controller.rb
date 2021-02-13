@@ -3,12 +3,11 @@ class CandidatesController < ApplicationController
     @candidate = Candidate.new
   end
 
-  def create   
+  def create
     @candidate = Candidate.new(candidate_params)
     @room = @candidate.build_room
-    
-    
-    if @candidate.save 
+
+    if @candidate.save
       redirect_to root_path
     else
       render :new
@@ -17,13 +16,12 @@ class CandidatesController < ApplicationController
 
   def show
     @candidate = Candidate.find(params[:id])
-   
   end
 
   def edit
     @candidate = Candidate.find(params[:id])
   end
-  
+
   def update
     @candidate = Candidate.find(params[:id])
     if @candidate.update(candidate_params)
@@ -43,8 +41,7 @@ class CandidatesController < ApplicationController
       end
     end
   end
-  
-  
+
   private
 
   def candidate_params

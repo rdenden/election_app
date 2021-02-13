@@ -29,7 +29,7 @@ let timer = (()=>{
       let m = Math.floor((t - h * 3600) / 60);
       let s = Math.floor(t - h * 3600 - m * 60);
       count = document.getElementById('count')
-      count.innerHTML = ('[本日投票最終日] 投票期限まで 残り ' + addZero(h) + '時間' + addZero(m) + '分' + addZero(s) + '秒');
+      count.innerHTML = (' 投票期限まで 残り ' + addZero(h) + '時間' + addZero(m) + '分' + addZero(s) + '秒');
       if(flag === false){
         flag = true;
       }

@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe "立候補機能", type: :system do
+RSpec.describe '立候補機能', type: :system do
   before do
     @electorate = FactoryBot.create(:electorate)
     @electorate1 = FactoryBot.create(:electorate)
@@ -8,9 +8,8 @@ RSpec.describe "立候補機能", type: :system do
     @candidate1 = FactoryBot.create(:candidate, electorate_id: @electorate1.id)
     @candidate.career = Faker::Lorem.sentence
     @candidate.public_commitment = Faker::Lorem.sentence
-    
   end
-  context '立候補ができるとき'do
+  context '立候補ができるとき' do
     it 'ログインした有権者は立候補できる' do
       # ログインしてトップページに遷移する
       visit new_electorate_session_path
@@ -29,22 +28,22 @@ RSpec.describe "立候補機能", type: :system do
       fill_in 'first-name', with: @candidate.first_name
       fill_in 'last-name-kana', with: @candidate.last_name_kana
       fill_in 'first-name-kana', with: @candidate.first_name_kana
-      select '2000',from: 'candidate[birth_date(1i)]'
-      select '1',from: 'candidate[birth_date(2i)]'
-      select '1',from: 'candidate[birth_date(3i)]'
+      select '2000', from: 'candidate[birth_date(1i)]'
+      select '1', from: 'candidate[birth_date(2i)]'
+      select '1', from: 'candidate[birth_date(3i)]'
       fill_in 'age', with: @candidate.age
-      select '男',from: 'candidate[gender_id]'      
+      select '男', from: 'candidate[gender_id]'
       fill_in 'birth-place', with: @candidate.birth_place
       fill_in 'occupation', with: @candidate.occupation
       fill_in 'education', with: @candidate.education
       fill_in 'political-party', with: @candidate.political_party
-      select '新人',from: 'candidate[experience_id]'
+      select '新人', from: 'candidate[experience_id]'
       fill_in 'career', with: @candidate.career
       fill_in 'public-commitment', with: @candidate.public_commitment
       # 送信するとCandidateモデルのカウントが1上がることを確認する
-      expect{
+      expect  do
         find('input[name="commit"]').click
-      }.to change { Candidate.count }.by(1)
+      end.to change { Candidate.count }.by(1)
       # トップページに遷移することを確認する
       expect(current_path).to eq root_path
       # 「立候補する」のボタンがないことを確認する
@@ -55,7 +54,7 @@ RSpec.describe "立候補機能", type: :system do
       expect(page).to have_content(@candidate.first_name)
     end
   end
-  context '立候補ができないとき'do
+  context '立候補ができないとき' do
     it 'ログインしていないと立候補ページに遷移できない' do
       # トップページに遷移する
       visit root_path
@@ -81,10 +80,9 @@ RSpec.describe '立候補情報の編集', type: :system do
     @electorate2 = FactoryBot.create(:electorate)
     @candidate1 = FactoryBot.create(:candidate, electorate_id: @electorate1.id)
     @candidate2 = FactoryBot.create(:candidate, electorate_id: @electorate2.id)
-    @room1 = Room.create(candidate_id:@candidate1.id)
-    @room2 = Room.create(candidate_id:@candidate2.id)
+    @room1 = Room.create(candidate_id: @candidate1.id)
+    @room2 = Room.create(candidate_id: @candidate2.id)
     @candidate1.birth_date = '2000-12-12'
-    
   end
   context '立候補情報の編集ができるとき' do
     it 'ログインした有権者は自分の立候補情報の編集ができる' do
@@ -103,7 +101,7 @@ RSpec.describe '立候補情報の編集', type: :system do
       visit edit_candidate_path(@candidate1)
       # すでに投稿済みの内容がフォームに入っていることを確認する
       # expect(
-        # find('#tweet_image').value
+      # find('#tweet_image').value
       # ).to eq @tweet1.image
       expect(
         find('#last-name').value
@@ -147,9 +145,7 @@ RSpec.describe '立候補情報の編集', type: :system do
       expect(
         find('#candidate-experience').value
       ).to eq '1'
-      
-      
-      
+
       # 登録内容を編集する
       fill_in 'last-name', with: '山田'
       fill_in 'first-name', with: '太郎'
@@ -158,13 +154,13 @@ RSpec.describe '立候補情報の編集', type: :system do
       fill_in 'career', with: 'あいうえお'
       fill_in 'public-commitment', with: 'かきくけこ'
       # 編集してもTweetモデルのカウントは変わらないことを確認する
-      expect{
+      expect  do
         find('input[name="commit"]').click
-      }.to change { Candidate.count }.by(0)
+      end.to change { Candidate.count }.by(0)
       # トップ画面に遷移することを確認する
       expect(current_path).to eq root_path
       # トップページには先ほど変更した名前リンクが存在することを確認する
-      expect(page).to have_content('山田'+' '+'太郎')
+      expect(page).to have_content('山田' + ' ' + '太郎')
     end
   end
   context '立候補情報の編集ができないとき' do
@@ -190,7 +186,6 @@ RSpec.describe '立候補情報の編集', type: :system do
       # 立候補2のページに遷移し「編集」ボタンがないことを確認する
       visit candidate_path(@candidate2.id)
       expect(page).to have_no_link 'プロフィールを編集する', href: edit_candidate_path(@candidate2)
-      
     end
   end
 end
@@ -201,8 +196,8 @@ RSpec.describe '立候補取り下げ', type: :system do
     @electorate2 = FactoryBot.create(:electorate)
     @candidate1 = FactoryBot.create(:candidate, electorate_id: @electorate1.id)
     @candidate2 = FactoryBot.create(:candidate, electorate_id: @electorate2.id)
-    @room1 = Room.create(candidate_id:@candidate1.id)
-    @room2 = Room.create(candidate_id:@candidate2.id)
+    @room1 = Room.create(candidate_id: @candidate1.id)
+    @room2 = Room.create(candidate_id: @candidate2.id)
   end
   context '立候補取り下げができるとき' do
     it 'ログインした有権者は立候補を取り下げることができる' do
@@ -216,11 +211,12 @@ RSpec.describe '立候補取り下げ', type: :system do
       visit candidate_path(@candidate1.id)
       expect(page).to have_link '立候補を取りやめる', href: candidate_path(@candidate1)
       # 投稿を削除するとレコードの数が1減ることを確認する
-      expect{page.find_link('立候補を取りやめる', href: candidate_path(@candidate1)).click
-      }.to change { Candidate.count }.by(-1)
+      expect do
+        page.find_link('立候補を取りやめる', href: candidate_path(@candidate1)).click
+      end.to change { Candidate.count }.by(-1)
       # 削除完了画面に遷移することを確認する
       expect(current_path).to eq root_path
-      
+
       # トップページには立候補1の内容が存在しないことを確認する（画像）
       # expect(page).to have_no_selector ".content_post[style='background-image: url(#{@tweet1.image});']"
       # トップページには立候補1の内容が存在しないことを確認する（名前）
@@ -244,8 +240,6 @@ RSpec.describe '立候補取り下げ', type: :system do
       # 立候補1のページに「削除」ボタンが無いことを確認する
       visit candidate_path(@candidate1.id)
       expect(page).to have_no_link '削除', href: candidate_path(@candidate1)
-      
     end
   end
 end
-

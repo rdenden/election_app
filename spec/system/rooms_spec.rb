@@ -1,12 +1,12 @@
 require 'rails_helper'
 
-RSpec.describe "ルームの生成", type: :system do
-    before do
-      @electorate = FactoryBot.create(:electorate)
-      @candidate = FactoryBot.build(:candidate)
-    end
-    
-    context 'ルームが生成できるとき'do
+RSpec.describe 'ルームの生成', type: :system do
+  before do
+    @electorate = FactoryBot.create(:electorate)
+    @candidate = FactoryBot.build(:candidate)
+  end
+
+  context 'ルームが生成できるとき' do
     it '立候補できるすれば自動的に生成される' do
       # ログインしてトップページに遷移する
       visit new_electorate_session_path
@@ -25,29 +25,22 @@ RSpec.describe "ルームの生成", type: :system do
       fill_in 'first-name', with: @candidate.first_name
       fill_in 'last-name-kana', with: @candidate.last_name_kana
       fill_in 'first-name-kana', with: @candidate.first_name_kana
-      select '2000',from: 'candidate[birth_date(1i)]'
-      select '1',from: 'candidate[birth_date(2i)]'
-      select '1',from: 'candidate[birth_date(3i)]'
+      select '2000', from: 'candidate[birth_date(1i)]'
+      select '1', from: 'candidate[birth_date(2i)]'
+      select '1', from: 'candidate[birth_date(3i)]'
       fill_in 'age', with: @candidate.age
-      select '男',from: 'candidate[gender_id]'      
+      select '男', from: 'candidate[gender_id]'
       fill_in 'birth-place', with: @candidate.birth_place
       fill_in 'occupation', with: @candidate.occupation
       fill_in 'education', with: @candidate.education
       fill_in 'political-party', with: @candidate.political_party
-      select '新人',from: 'candidate[experience_id]'
+      select '新人', from: 'candidate[experience_id]'
       fill_in 'career', with: @candidate.career
       fill_in 'public-commitment', with: @candidate.public_commitment
       # 送信するとCandidateモデルのカウントが1上がることを確認する
-      expect{
+      expect  do
         find('input[name="commit"]').click
-      }.to change { Room.count }.by(1)
+      end.to change { Room.count }.by(1)
     end
   end
 end
-
-
-
-
-
-
-   

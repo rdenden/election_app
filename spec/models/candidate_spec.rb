@@ -17,22 +17,26 @@ RSpec.describe Electorate, type: :model do
         it 'last_nameが空では登録できないこと' do
           @candidate.last_name = nil
           @candidate.valid?
-          expect(@candidate.errors.full_messages).to include("Last name can't be blank", "Last name Full-width characters")
+          expect(@candidate.errors.full_messages).to include("Last name can't be blank",
+                                                             'Last name Full-width characters')
         end
         it 'first_nameが空では登録できないこと' do
           @candidate.first_name = nil
           @candidate.valid?
-          expect(@candidate.errors.full_messages).to include("First name can't be blank", "First name Full-width characters")
+          expect(@candidate.errors.full_messages).to include("First name can't be blank",
+                                                             'First name Full-width characters')
         end
         it 'last_name_kanaが空では登録できないこと' do
           @candidate.last_name_kana = nil
           @candidate.valid?
-          expect(@candidate.errors.full_messages).to include("Last name kana can't be blank", "Last name kana Full-width katakana characters")
+          expect(@candidate.errors.full_messages).to include("Last name kana can't be blank",
+                                                             'Last name kana Full-width katakana characters')
         end
         it 'first_name_kanaが空では登録できないこと' do
           @candidate.last_name_kana = nil
           @candidate.valid?
-          expect(@candidate.errors.full_messages).to include("Last name kana can't be blank", "Last name kana Full-width katakana characters")
+          expect(@candidate.errors.full_messages).to include("Last name kana can't be blank",
+                                                             'Last name kana Full-width katakana characters')
         end
         it 'birth_dateが空では登録できないこと' do
           @candidate.birth_date = nil
@@ -77,7 +81,7 @@ RSpec.describe Electorate, type: :model do
         it 'electorate_idが空では登録できないこと' do
           @candidate.electorate_id = nil
           @candidate.valid?
-          expect(@candidate.errors.full_messages).to include("Electorate must exist", "Electorate can't be blank")
+          expect(@candidate.errors.full_messages).to include('Electorate must exist', "Electorate can't be blank")
         end
         it 'last_nameが全角英字で登録できないこと' do
           @candidate.last_name = 'ａａ'
@@ -186,17 +190,17 @@ RSpec.describe Electorate, type: :model do
         it 'ageが全角では登録できないこと' do
           @candidate.age = '１'
           @candidate.valid?
-          expect(@candidate.errors.full_messages).to include("Age is not a number")
+          expect(@candidate.errors.full_messages).to include('Age is not a number')
         end
         it 'ageが英字では登録できないこと' do
           @candidate.age = 'a'
           @candidate.valid?
-          expect(@candidate.errors.full_messages).to include("Age is not a number")
+          expect(@candidate.errors.full_messages).to include('Age is not a number')
         end
         it 'ageが24以下では登録できないこと' do
           @candidate.age = '24'
           @candidate.valid?
-          expect(@candidate.errors.full_messages).to include("Age must be greater than or equal to 25")
+          expect(@candidate.errors.full_messages).to include('Age must be greater than or equal to 25')
         end
         it 'gender_idが0では登録できないこと' do
           @candidate.gender_id = 0
@@ -214,7 +218,6 @@ RSpec.describe Electorate, type: :model do
           another_candidate.valid?
           expect(another_candidate.errors.full_messages).to include('Electorate has already been taken')
         end
-
       end
     end
   end
