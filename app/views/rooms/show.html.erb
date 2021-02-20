@@ -7,8 +7,9 @@
     <div class= "chat-rightheader">
       <%= @candidate.last_name %><%= @candidate.first_name %>候補の部屋
     </div>
-  </div>
+  </div>  
   <div class="chat">
+    <%# 左のボックスに有権者のコメント表示 %>
     <div class="electorate-chat">
       <div class= 'message-header'>有権者のコメント</div>
       <li class= 'message-list'>
@@ -20,6 +21,7 @@
       </li>
     <% end %>
     </div>
+    <%# 右側のボックスに候補者のコメントを表示 %>
     <div class="candidate-chat">
       <div class= 'message-header'>候補者のコメント</div>
       <li class= 'message-list'>
@@ -35,7 +37,7 @@
 </div>
 
 
-<%# <%= form_with model: [@candidate, @room, @message], class: 'form', local: true do |f| %> 
+<%# コメント入力フォーム %>
 <%= form_with url: "/candidates/#{@candidate.id}/rooms/#{@room.id}/messages", method: :post, local: true do |f| %>
 コメント入力欄
   <%= f.text_field :content ,class: 'message-field',placeholder: "メッセージを入力してください"%>

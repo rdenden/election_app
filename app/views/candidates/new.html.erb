@@ -4,11 +4,9 @@
     <h2 class="candidates-sell-title">立候補に際して以下の情報を入力してください</h2>
     <%= form_with(model: @candidate, local: true) do |f| %>
 
-    <%# インスタンスを渡して、エラー発生時にメッセージが表示されるようにしましょう。%>
+    <%# エラーメッセージ %>
     <%= render partial:'devise/shared/error_messages', locals: { model: f.object }  %>
-    <%# //インスタンスを渡して、エラー発生時にメッセージが表示されるようにしましょう。%>
-
-    <%# 出品画像 %>
+   
     <div class="img-upload">
       <div class="weight-bold-text">
         候補者画像
@@ -21,8 +19,7 @@
         <%= f.file_field :image, id:"candidate-image" %>
       </div>
     </div>
-    <%# /出品画像 %>
-    <%# 商品名と商品説明 %>
+   
     <div class="form-group">
     <div class='form-text-wrap'>
       <label class="form-text">お名前(全角)</label>

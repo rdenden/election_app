@@ -6,6 +6,7 @@ class VotesController < ApplicationController
   end
 
   def create
+    # 空の投票をすると、params[:vote]が存在せず、vote_paramsがエラーが起きるため、@vote = Vote.new(vote_params)の手前で分岐させる
     if params[:vote].nil?
       @candidates = Candidate.all
       @vote = Vote.new
@@ -28,6 +29,7 @@ class VotesController < ApplicationController
     @candidates = Candidate.all
     counts = Vote.group(:candidate_id).count(:candidate_id)
     @values = counts.values
+    # 最大得票数を取得
     @candidate = Candidate.find(counts.key(counts.values.max))
   end
 

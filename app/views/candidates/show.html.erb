@@ -1,10 +1,12 @@
 <div class='edit-box'>
+<%# 候補者本人のみ編集、立候補取り下げボタンが表示される %>
      <% if electorate_signed_in? && @candidate.electorate_id == current_electorate.id %>
      <%= link_to 'プロフィールを編集する', edit_candidate_path(@candidate.id), class: "logout" %>
      <%= link_to '立候補を取りやめる', candidate_path(@candidate.id),method: :delete, class: "candidate-up", id:"destroy_candidate" %>
      <% end %>
 </div>
 
+<%# サインインした者のみチャットルームに遷移できる %>
 <% if electorate_signed_in? %>
 <%= link_to "#{@candidate.last_name}#{@candidate.first_name}候補への質問はこちらへ", candidate_room_path(@candidate,@candidate.room), class:"room" %>
 <% end %>

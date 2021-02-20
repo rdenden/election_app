@@ -1,10 +1,10 @@
+<%# 当選者表示 %>
 <p class= 'vote-title' ><%=@candidate.last_name%><%=@candidate.first_name%>候補が当選</p>
   
 
 
-
-<div class='wrapper'>
-  
+<%# 各候補者の得票数を表示 %>
+<div class='wrapper'> 
   <div class= 'candidate'>
     <% @candidates.each do |candidate|%>
       <li class= list>

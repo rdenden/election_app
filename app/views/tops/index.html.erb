@@ -6,6 +6,7 @@
 
 <div class='user_content'>
   <div class='user_name'>こんにちは
+  <%# サインインの有無で表示を変える %>
     <% if electorate_signed_in?%>
     <%= current_electorate.nickname %>
     <% else %>
@@ -18,6 +19,7 @@
      <button>
      <%= link_to 'ログアウト', destroy_electorate_session_path, method: :delete, class: "logout" %>
      </button> 
+     <%# 立候補済み、投票済みの者はボタンが表示されない %>
      <%if current_electorate.candidate%>
        [立候補済]
        <% else %>
@@ -39,7 +41,7 @@
   
    <% end %>
   </div>
-
+<%# 立候補者一覧を表示する %>
 </div>
 <div class= 'index' >候補者一覧(届出順)</div>
 <div class= 'candidate_content'>
