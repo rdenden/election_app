@@ -12,6 +12,8 @@
 * 投票が締め切られた後は、トップページに遷移しようとすると選挙結果が表示される
 https://gyazo.com/0f012241741f96b6bc8b02df6ef9ee58
 
+![image](https://user-images.githubusercontent.com/75596850/109622964-07b0f500-7b80-11eb-8e87-3b275f6a1a36.png)
+
 # 2 本番環境
 
 ## デプロイ先
@@ -55,9 +57,10 @@ aaa@bbb
 
 # 5 使用技術(開発環境)
 
-* 言語：Html,SCS,Ruby,javascript
-* フレームワーク：Ruby on Rails
+* フロントエンド：Html,CSS,javascript
+* バックエンド：Ruby on Rails
 * DB：mysql
+* テスト:RSpec/factory_bot
 
 
 # 6 課題や今後実装したい機能
