@@ -8,9 +8,8 @@
 * 投票機能
 * 票数を集計し結果を表示する機能
 * 投票締切以降は選挙結果しか表示されない
-
 * 投票が締め切られた後は、トップページに遷移しようとすると選挙結果が表示される
-https://gyazo.com/0f012241741f96b6bc8b02df6ef9ee58
+
 ### DEMO
 #### トップ
 ![image](https://user-images.githubusercontent.com/75596850/109622964-07b0f500-7b80-11eb-8e87-3b275f6a1a36.png)
