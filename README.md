@@ -17,6 +17,10 @@ https://gyazo.com/0f012241741f96b6bc8b02df6ef9ee58
 #### 候補者情報
 ![image](https://user-images.githubusercontent.com/75596850/109623610-a9384680-7b80-11eb-9682-3dd4d569bd36.png)
 ![image](https://user-images.githubusercontent.com/75596850/109623900-fa483a80-7b80-11eb-8123-d82cb27c9bdc.png)
+#### チャットルーム
+![image](https://user-images.githubusercontent.com/75596850/109624316-69259380-7b81-11eb-9a6c-2287af12cfdb.png)
+
+
 
 
 
