@@ -11,8 +11,14 @@
 
 * 投票が締め切られた後は、トップページに遷移しようとすると選挙結果が表示される
 https://gyazo.com/0f012241741f96b6bc8b02df6ef9ee58
-
+### DEMO
+#### トップ
 ![image](https://user-images.githubusercontent.com/75596850/109622964-07b0f500-7b80-11eb-8e87-3b275f6a1a36.png)
+#### 候補者情報
+![image](https://user-images.githubusercontent.com/75596850/109623610-a9384680-7b80-11eb-9682-3dd4d569bd36.png)
+
+
+
 
 # 2 本番環境
 
