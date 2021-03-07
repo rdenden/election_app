@@ -76,8 +76,8 @@ aaa@bbb
 
 * フロントエンド：Html,CSS,javascript
 * バックエンド：Ruby on Rails 6.0.0
-* DB：mysql
-* テスト:RSpec/factory_bot
+* DB：mysql2 0.4.4
+* テスト:RSpec 4.0.0/factory_bot
 
 
 # 6 課題や今後実装したい機能
