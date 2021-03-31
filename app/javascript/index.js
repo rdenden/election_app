@@ -1,47 +1,40 @@
-//日付を指定
+
+window.addEventListener('load', function(){
+
+// 投票日と現在日時との差分を計算
+function countdown(due) {
+  const now = new Date;
+
+  const rest = due.getTime() - now.getTime();
+  const sec = Math.floor(rest / 1000) % 60;
+  const min = Math.floor(rest / 1000 / 60) % 60;
+  const hours = Math.floor(rest / 1000 / 60 / 60) % 24;
+  const days = Math.floor(rest / 1000 / 60 / 60/ 24);
+  const count = [days,hours,min,sec];
+  return count
+}
+
+// 投票日設定
+let goal = new Date(2021,12,31,20,);
+
+console.log(countdown(goal));
 
 
-//時間を指定
-let tH = 24;
-//分を指定
-let tM = 0;
-//秒を指定
-let tS = 0;
+function recalc() {
+  const counter = countdown(goal);
+  console.log(counter);
+ 
+  document.getElementById('day').textContent = counter[0];
+  document.getElementById('hour').textContent = counter[1];
+  document.getElementById('min').textContent = String(counter[2]).padStart(2,'0');
+  document.getElementById('sec').textContent = String(counter[3]).padStart(2,'0');
+  refresh();  
+}
 
-let timer = (()=>{
-  // 指定時間までの差分を取得
-  let getDeffer = ()=>{
-    let today = new Date();
-    let todayMilliSec = today.getTime();
-    let nextDay = today.getDate() + 1 ;
-    let targetTime = new Date(today.getFullYear(), today.getMonth(), today.getDate(), tH, tM, tS);
-    let targetTimeMilliSec = targetTime.getTime();
-    let deff = targetTimeMilliSec - todayMilliSec;
-    return deff;
-  }
-  // 1秒おきにカウントダウン
-  let display = setInterval(()=>{
-    let ms = getDeffer();
-    let flag = true;
-    if (ms > 0) {
-      let t = Math.round(ms / 1000);
-      let h = Math.floor(t / 3600);
-      let m = Math.floor((t - h * 3600) / 60);
-      let s = Math.floor(t - h * 3600 - m * 60);
-      count = document.getElementById('count')
-      count.innerHTML = (' 投票期限まで 残り ' + addZero(h) + '時間' + addZero(m) + '分' + addZero(s) + '秒');
-      if(flag === false){
-        flag = true;
-      }
-    } else {
-      if(flag === true){
-      count.innerHTML =('投票期限は終了しました');
-        flag = false;
-      }
-    }
-  }, 1000);
+// 1秒毎に表示
+function refresh() {
+  setTimeout(recalc,1000);
+}
 
-  let addZero = function (num) {
-    return ('0' + num).slice(-2);
-  }
-})();
+recalc();
+})

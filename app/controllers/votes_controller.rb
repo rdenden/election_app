@@ -27,6 +27,7 @@ class VotesController < ApplicationController
 
   def index
     @candidates = Candidate.all
+    # 
     counts = Vote.group(:candidate_id).count(:candidate_id)
     @values = counts.values
     # 最大得票数を取得
