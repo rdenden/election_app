@@ -15,13 +15,13 @@ window.addEventListener('load', function(){
   }
 
   // 投票日設定
-  let goal = new Date(2021,12,31,20,);
+  let electionDay = new Date(2021,12,31,20,);
 
-  console.log(countdown(goal));
+  console.log(countdown(electionDay));
 
 
   function recalc() {
-    const counter = countdown(goal);
+    const counter = countdown(electionDay);
     console.log(counter);
 
     document.getElementById('day').textContent = counter[0];
